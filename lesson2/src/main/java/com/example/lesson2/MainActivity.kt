@@ -28,13 +28,17 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("TAG", "onCreate ${this.localClassName}")
 //        Singleton.context = this
+//
+//        textView = findViewById(R.id.textView)
+//        state = State(200)
+//
+//        findViewById<Button>(R.id.button).setOnClickListener {
+//            textView.text = "Bye, World!"
+//        }
 
-        textView = findViewById(R.id.textView)
-        state = State(200)
+        supportFragmentManager.beginTransaction()
+            .add(BlankFragment)
 
-        findViewById<Button>(R.id.button).setOnClickListener {
-            textView.text = "Bye, World!"
-        }
     }
 
     override fun onDestroy() {

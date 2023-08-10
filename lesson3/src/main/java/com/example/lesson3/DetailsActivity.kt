@@ -16,6 +16,7 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        finish()
         Log.d(DetailsActivity.TAG, "onCreate() ${this.localClassName}")
 
         setContentView(R.layout.activity_details)
@@ -24,6 +25,13 @@ class DetailsActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val newString = intent.getStringExtra("FILE_NAME") + "!"
+        setResult(200, Intent().apply {
+putExtras
+            putExtra("FILE_NAME", newString)
+        })
+        finish()
     }
 
     override fun onStart() {
